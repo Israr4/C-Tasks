@@ -1,5 +1,6 @@
 #include <iostream>
 #include <cmath>
+#include <vector>
 
 class Object 
 {
@@ -22,11 +23,15 @@ class Object
         this->velocity = velocity;
         this->angle    = angle;  
     }
+    
 };
+
+
 
 void calculateCollisionFunction(const Object& obj1, const Object& obj2, double& collisionTime)
 {
-    // Calculate the time of collision
+    
+   
     double timex = (obj1.velocity * cos(obj1.angle)) - (obj2.velocity * cos(obj2.angle));
     double timey = (obj1.velocity * sin(obj1.angle)) - (obj2.velocity * sin(obj2.angle));
 
@@ -34,19 +39,14 @@ void calculateCollisionFunction(const Object& obj1, const Object& obj2, double& 
     double distX = obj2.x_value - obj1.x_value;
     double distY = obj2.y_value - obj1.y_value;
 
-    // Calculate the time of collision
     collisionTime = (distX * timex + distY * timey) / (timex * timex + timey * timey);
 }
 
 
-
-
-
-
 int main() 
-{
-    Object object1(4808, 258, 90, 180  * M_PI / 180);    //angle in radian    
-    Object object2(5691, 658, 50, 160 * M_PI / 180);   
+{   
+    Object object1(2, 2,5, 45  * M_PI / 180);    //angle in radian    
+    Object object2(5, 4,7, 135 * M_PI / 180);    
     Object intersection;
 
     double collisionTime;
@@ -57,11 +57,8 @@ int main()
         double collisionX = object1.x_value + object1.velocity * cos(object1.angle) * collisionTime;
         double collisionY = object1.y_value + object1.velocity * sin(object1.angle) * collisionTime;
 
-        intersection.x_value = collisionX;
-        intersection.y_value = collisionY;
-
         std::cout << "Collision detected!" << std::endl;
-        std::cout << "Intersection point: (" << intersection.x_value << ", " << intersection.y_value << ")" << std::endl;
+        std::cout << "Intersection point: (" << collisionX << ", " << collisionY << ")" << std::endl;
     } 
     else 
     {
