@@ -1,3 +1,78 @@
+#include <iostream>
+#include <cmath>
+
+class Object 
+{
+    public:
+    double x_value, y_value;    
+    double velocity,angle;
+
+    Object()
+    {
+        x_value  = 0;
+        y_value  = 0;
+        velocity = 0;
+        angle    = 0;
+    }
+
+    Object(double x_value, double y_value, double velocity, double angle)
+    {
+        this->x_value  = x_value;
+        this->y_value  = y_value;
+        this->velocity = velocity;
+        this->angle    = angle;  
+    }
+};
+
+void calculateCollisionFunction(const Object& obj1, const Object& obj2, double& collisionTime)
+{
+    // Calculate the time of collision
+    double timex = (obj1.velocity * cos(obj1.angle)) - (obj2.velocity * cos(obj2.angle));
+    double timey = (obj1.velocity * sin(obj1.angle)) - (obj2.velocity * sin(obj2.angle));
+
+
+    double distX = obj2.x_value - obj1.x_value;
+    double distY = obj2.y_value - obj1.y_value;
+
+    // Calculate the time of collision
+    collisionTime = (distX * timex + distY * timey) / (timex * timex + timey * timey);
+}
+
+
+
+
+
+
+int main() 
+{
+    Object object1(4808, 258, 90, 180  * M_PI / 180);    //angle in radian    
+    Object object2(5691, 658, 50, 160 * M_PI / 180);   
+    Object intersection;
+
+    double collisionTime;
+    calculateCollisionFunction(object1, object2, collisionTime);
+
+    if (collisionTime >= 0 && collisionTime <= 1) 
+    {
+        double collisionX = object1.x_value + object1.velocity * cos(object1.angle) * collisionTime;
+        double collisionY = object1.y_value + object1.velocity * sin(object1.angle) * collisionTime;
+
+        intersection.x_value = collisionX;
+        intersection.y_value = collisionY;
+
+        std::cout << "Collision detected!" << std::endl;
+        std::cout << "Intersection point: (" << intersection.x_value << ", " << intersection.y_value << ")" << std::endl;
+    } 
+    else 
+    {
+        std::cout << "No collision detected." << std::endl;
+    }
+
+    return 0;
+}
+
+
+
 // #include <iostream>
 
 // class Car1
@@ -38,43 +113,124 @@
 
 
 
-
-#include <iostream>
-
-struct Car
-{
-    int x_axis, y_axis;  
-    double speed, angle;
-};
+//  Object object1(2, 2,5, 45  * M_PI / 180);    //angle in radian    
+//     Object object2(5, 4,7, 135 * M_PI / 180);   
 
 
-bool checkCollisionFunction(const Car& car1, const Car& car2) 
-{
-    if (car1.x_axis < car2.x_axis + car2.speed && car1.x_axis + car1.speed > car2.x_axis && car1.y_axis < car2.y_axis + car2.angle && car1.y_axis + car1.angle > car2.y_axis)   
-    {
-        return true;    
-    }
-    else
-    {
-        return false;     
-    }
-}
 
 
-int main()
- {
-    Car car1 = { 2, 2, 10, 4 };    
-    Car car2 = { 5, 4, 2, 3 };    
+
+// #include <iostream>
+// #include <cmath>
+
+// class Car
+// {
+//     public:
+//     double x_axis, y_axis, speed, angle;
+
+//     Car(double x,double y,double speedd,double anglee)
+//     {
+//         x_axis = x;
+//         y_axis = y;
+//         speed = speedd;
+//         angle = anglee;
+//     }
+
+    
+// };
+
+
+// bool checkCollisionFunction(const Car& car1, const Car& car2) 
+// {
+//     double time = (car2.x_axis - car1.x_axis)/((car1.speed*cos(car1.angle)) - (car2.speed*cos(car2.angle)));
+//     double intersected_x_axis = car1.x_axis + car1.speed * cos(car1.angle) * time;
+//     double intersected_y_axis = car1.y_axis + car1.speed * sin(car1.angle) * time;
+
+//     if(car1.x_axis == intersected_x_axis && car1.y_axis == intersected_y_axis)
+//     {
+//         return true;
+//     }
+//     else
+//     {
+//         return false;
+//     }
+
+//     // if (car1.x_axis < car2.x_axis + car2.speed && car1.x_axis + car1.speed > car2.x_axis && car1.y_axis < car2.y_axis + car2.angle && car1.y_axis + car1.angle > car2.y_axis)   
+//     // {
+//     //     return true;    
+//     // }
+//     // else
+//     // {
+//     //     return false;     
+//     // }
+// }
+
+
+// int main()
+//  {
+//     Car car1(2, 5, 10, 90);    
+//     Car car2(5, 4, 2, 45);    
 
    
-    if (checkCollisionFunction(car1, car2))
-    {
-        std::cout << "Collision detected" << std::endl;
-    } 
-    else 
-    {
-        std::cout << "No collision detected" << std::endl;
-    }
+//     if (checkCollisionFunction(car1, car2))
+//     {
+//         std::cout << "Collision detected" << std::endl;
+//     } 
+//     else 
+//     {
+//         std::cout << "No collision detected" << std::endl;
+//     }
 
-    return 0;
-}
+//     return 0;
+// }
+
+
+
+
+
+
+
+// Certainly! Let's consider a simplified scenario where both objects are moving linearly in a 2D plane. If you have the initial positions (x1, y1) and (x2, y2), the velocities (v1, v2), and the angles (θ1, θ2) of the objects, you can calculate the time of intersection (t) using the following equation:
+
+// t = (x2 - x1) / (v1 * cos(θ1) - v2 * cos(θ2))
+
+// Once you have the value of t, you can substitute it back into the equation to find the coordinates of the intersection point (xi, yi):
+
+// xi = x1 + v1 * cos(θ1) * t
+// yi = y1 + v1 * sin(θ1) * t
+
+// Note that this equation assumes constant velocities for both objects and neglects any external forces or interactions. It provides an approximate solution under these assumptions. If you need to account for more complex scenarios or factors such as acceleration, friction, or collision dynamics, more sophisticated equations or numerical methods may be necessary.
+
+
+
+
+
+
+
+
+
+
+
+
+
+// bool checkCollisionFunction(const Object& obj1, const Object& obj2, Object& intersection) // only checking collision with the help of dimension width and height
+// {
+//     double left   = std::max(obj1.x_value, obj2.x_value);
+//     double right  = std::min(obj1.x_value + obj1.width, obj2.x_value + obj2.width);
+//     double top    = std::max(obj1.y_value, obj2.y_value);
+//     double bottom = std::min(obj1.y_value + obj1.height, obj2.y_value + obj2.height);
+
+//     if (left < right && top < bottom) 
+//     {
+//         intersection.x_value = left;
+//         intersection.y_value = top;
+//         intersection.width   = right - left;
+//         intersection.height  = bottom - top;
+//         return true;   
+//     }
+
+//     else
+//     {
+//     return false;     
+//     }
+// }
