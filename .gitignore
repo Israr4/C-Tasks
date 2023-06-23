@@ -16,3 +16,56 @@ Cars_Collision/cars
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#if we push a code to repo first time then we only write a path of removing files in .gitignore file
+#like this   Cars_Collision/car             Cars_Collision/cars 
+
+#But if you push a code without writing that command then we have to write this command in git repo folder           git rm -r --cached Cars_Collision/cars 
+
+
+
+
