@@ -1,15 +1,3 @@
-
-# # But not .cpp
-# !*.cpp
-# # Or directories
-# !*/
-
-Cars_Collision/car
-Cars_Collision/cars
-
-
-
-
 # Prerequisites
 *.d
 
