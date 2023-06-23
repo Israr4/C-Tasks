@@ -18,7 +18,3 @@ vector
 include/car_collision.h
 /home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/include/car_collision.h
 
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/src/car_collision.cpp
-../include/car_collision.h
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/include/car_collision.h
-

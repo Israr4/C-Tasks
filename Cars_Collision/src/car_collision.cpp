@@ -10,24 +10,17 @@
     }
 
 
-    bool isCalculatingCollision(const Car& obj1, const Car& obj2)
+    bool isCalculatingCollision(const Car& car1, const Car& car2)
     {
-        double time_x = (obj1.velocity_ * cos(obj1.angle_)) - (obj2.velocity_ * cos(obj2.angle_));
-        double time_y = (obj1.velocity_ * sin(obj1.angle_)) - (obj2.velocity_ * sin(obj2.angle_));
+        double time_x = (car1.velocity_ * cos(car1.angle_)) - (car2.velocity_ * cos(car2.angle_));
+        double time_y = (car1.velocity_ * sin(car1.angle_)) - (car2.velocity_ * sin(car2.angle_));
 
-        double dist_X = obj2.x_ - obj1.x_;
-        double dist_Y = obj2.y_ - obj1.y_;
+        double dist_X = car2.x_ - car1.x_;
+        double dist_Y = car2.y_ - car1.y_;
 
         double collisionTime = ((dist_X * time_x) + (dist_Y * time_y)) / ((time_x * time_x) + (time_y * time_y));
 
-        if (collisionTime >= 0 && collisionTime <= 1) 
-        {
-            return true;
-        } 
-        else 
-        {
-            return false;
-        }
-    }
+        return (collisionTime >= 0 && collisionTime <= 1);
+     }
 
 
