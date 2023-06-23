@@ -1,8 +1,8 @@
 
-# But not .cpp
-!*.cpp
-# Or directories
-!*/
+# # But not .cpp
+# !*.cpp
+# # Or directories
+# !*/
 !.gitignore
 !README.md
 Cars_Collision/car
