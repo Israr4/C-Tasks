@@ -1,5 +1,0 @@
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/build/CMakeFiles/edit_cache.dir
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/build/CMakeFiles/package_source.dir
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/build/CMakeFiles/rebuild_cache.dir
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/build/CMakeFiles/package.dir
-/home/maanz-ai/cars_collision/C-Tasks/Cars_Collision/build/CMakeFiles/CarCollisions.dir
