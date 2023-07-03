@@ -1,0 +1,6 @@
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/edit_cache.dir
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/package_source.dir
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/rebuild_cache.dir
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/package.dir
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/DataVisualizer.dir
+/home/maanz-ai/Data_Visualization/C-Tasks/Data_Visualizer/build/CMakeFiles/visualizer.dir

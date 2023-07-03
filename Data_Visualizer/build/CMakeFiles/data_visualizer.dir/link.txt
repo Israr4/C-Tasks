@@ -1,0 +1,2 @@
+/usr/bin/ar qc libdata_visualizer.a  CMakeFiles/data_visualizer.dir/src/data_visualization.cpp.o
+/usr/bin/ranlib libdata_visualizer.a

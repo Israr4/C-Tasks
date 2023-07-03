@@ -1,0 +1,1 @@
+/usr/bin/c++    -rdynamic CMakeFiles/DataVisualizer.dir/main.cpp.o  -o DataVisualizer  libvisualizer.a -lX11 -lpthread 

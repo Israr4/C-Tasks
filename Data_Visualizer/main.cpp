@@ -7,13 +7,13 @@ int main()
 {
     int a = 100;
     int b = 100;
-    Shape obj1(a,b);
+   Visualizer obj1(a,b);
  
     CImg<unsigned char> canvas(500, 500, 1, 3, 255);  
     
 
-    Shape* rectangle = new Shape(a,b);
-    Shape* circle    = new Shape(a,b);
+    Visualizer* rectangle = new Visualizer(a,b);
+    Visualizer* circle    = new Visualizer(a,b);
 
     rectangle -> drawRectangleShape(canvas);
     circle    -> drawCircleShape(canvas);
@@ -30,9 +30,3 @@ int main()
 
     return 0;
 }
-
-
-
-
-
-
