@@ -12,8 +12,6 @@ int main()
     all_cars.push_back(Car(55 , 4, 7, 135 ));
 
     Visualizer visualize;
-
-   
     for(size_t i=0; i <all_cars.size(); i++)
     {
         visualize.update(all_cars);

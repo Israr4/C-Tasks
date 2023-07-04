@@ -1,7 +1,4 @@
-
-
 #include "data_visualization.h"
-
 
 Visualizer :: Visualizer()
 {
@@ -14,7 +11,6 @@ Visualizer :: Visualizer(size_t length, size_t width)
     length_ = length;
     width_  = width;
 }
-
 
 void Visualizer :: drawRectangleShape( Car car, unsigned char color[3]) 
 {
@@ -31,9 +27,7 @@ void Visualizer :: drawRectangleShape( Car car, unsigned char color[3])
     {
         std::cout<<"Hello"<<std::endl;
         canvas.fill(100);
-        car.x_ += 5;
-        car.y_ += 20;
-        // car.move();
+        car.move();
         canvas.draw_rectangle(car.x_ - (carWidth / 2), car.y_ - (carHeight / 2), car.x_ + (carWidth / 2), car.y_ + (carHeight / 2), color, 1.0f);
         canvas.display(display);
         cimg::wait(100);
@@ -42,10 +36,8 @@ void Visualizer :: drawRectangleShape( Car car, unsigned char color[3])
     while (!display.is_closed()) 
     {
         display.wait();
-    }
-    
+    } 
 }
-
 
 void Visualizer :: update(std::vector<Car> &all_cars)
 {
@@ -53,6 +45,5 @@ void Visualizer :: update(std::vector<Car> &all_cars)
     for(size_t i=0; i < all_cars.size();i++)
     {
         drawRectangleShape(all_cars[i], red);
-    }
-   
+    } 
 }
