@@ -6,16 +6,16 @@
 
 int main() 
 {
+    std::vector<Car> all_cars;
 
-    Car car1(200, 2, 5, 45 );    //angle in radian    
-    Car car2(55 , 4, 7, 135);  
-    Visualizer visualize; 
- 
-    // Car car1(2, 2, 5, 45 );    //angle in radian    
-    // Car car2(5, 4, 7, 135); 
-    // Visualizer visualize;
+    all_cars.push_back(Car(200, 2, 5, 45 ));
+    all_cars.push_back(Car(55 , 4, 7, 135 ));
 
-    visualize.update(car1,car2); 
-
+    Visualizer visualize;
+    for(size_t i=0; i <all_cars.size(); i++)
+    {
+        visualize.update(all_cars);
+    }
+    std::cout<<all_cars.size()<<std::endl;
     return 0;
 }

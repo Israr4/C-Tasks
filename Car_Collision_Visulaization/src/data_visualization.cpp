@@ -16,34 +16,43 @@ Visualizer :: Visualizer(size_t length, size_t width)
 }
 
 
-void Visualizer :: drawRectangleShape(CImg<unsigned char>& canvas, Car car, unsigned char color[3]) 
+void Visualizer :: drawRectangleShape( Car car, unsigned char color[3]) 
 {
     int carWidth  = 50;
     int carHeight = 30;
-    car.move();
-
-    canvas.draw_rectangle(car.x_ - (carWidth / 2), car.y_ - (carHeight / 2), car.x_ + (carWidth / 2), car.y_ + (carHeight / 2), color, 1.0f);
-}
-
-
-void Visualizer :: update( Car car1, Car car2)
-{
     int length = 1000;
     int width  = 1000;
     Visualizer(length,width);
 
     CImg<unsigned char> canvas(length, width, 1, 3, 255); 
-
-    unsigned char red[3] = {255, 0, 0};
-    drawRectangleShape(canvas, car1, red);
-
-    unsigned char blue[3] = {0, 0, 255};
-    drawRectangleShape(canvas, car2, blue);
-
     CImgDisplay display(canvas, "Rectangle and Circle"); 
+
+    for (int i = 0; i < 10; ++i) 
+    {
+        std::cout<<"Hello"<<std::endl;
+        canvas.fill(100);
+        car.x_ += 5;
+        car.y_ += 20;
+        // car.move();
+        canvas.draw_rectangle(car.x_ - (carWidth / 2), car.y_ - (carHeight / 2), car.x_ + (carWidth / 2), car.y_ + (carHeight / 2), color, 1.0f);
+        canvas.display(display);
+        cimg::wait(100);
+    }
 
     while (!display.is_closed()) 
     {
         display.wait();
     }
+    
+}
+
+
+void Visualizer :: update(std::vector<Car> &all_cars)
+{
+    unsigned char red[3] = {255, 0, 0};
+    for(size_t i=0; i < all_cars.size();i++)
+    {
+        drawRectangleShape(all_cars[i], red);
+    }
+   
 }

@@ -6,6 +6,7 @@
 
 
 #include <iostream>
+#include <unistd.h>
 #include "CImg.h"
 #include <vector>
 #include "car_collision.h"
@@ -19,8 +20,8 @@ class Visualizer
     Visualizer();
     Visualizer(size_t length, size_t width);
 
-    void drawRectangleShape(CImg<unsigned char>& canvas,Car car, unsigned char color[3]);
-    void update(Car car1, Car car2);
+    void drawRectangleShape(Car car, unsigned char color[3]);
+    void update(std::vector<Car> &all_cars);
 };
 
 #endif  
