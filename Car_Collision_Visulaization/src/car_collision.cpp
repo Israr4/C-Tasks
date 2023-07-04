@@ -1,5 +1,13 @@
+
 #include "car_collision.h"
 
+    Car::Car()
+    {
+        x_        = 0;
+        y_        = 0;
+        velocity_ = 0;
+        angle_    = 0;  
+    }
 
     Car::Car(double x, double y, double velocity, double angle)
     {
@@ -9,6 +17,11 @@
         angle_    = angle * M_PI / 180;  
     }
 
+    void Car::move()
+    {
+        x_ += velocity_ * cos(angle_);
+        y_ += velocity_ * sin(angle_);
+    }
 
     bool isCalculatingCollision(const Car& car1, const Car& car2)
     {
@@ -22,5 +35,3 @@
 
         return (collisionTime >= 0 && collisionTime <= 1);
      }
-
-
