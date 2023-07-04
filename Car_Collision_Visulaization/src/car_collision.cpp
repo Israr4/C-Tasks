@@ -1,13 +1,6 @@
 
-#include "car_collision.h"
+    #include "car_collision.h"
 
-    Car::Car()
-    {
-        x_        = 0;
-        y_        = 0;
-        velocity_ = 0;
-        angle_    = 0;  
-    }
 
     Car::Car(double x, double y, double velocity, double angle)
     {
@@ -23,7 +16,7 @@
         y_ += velocity_ * sin(angle_);
     }
 
-    bool isCalculatingCollision(const Car& car1, const Car& car2)
+    bool is_Colliding(const Car& car1, const Car& car2)
     {
         double time_x = (car1.velocity_ * cos(car1.angle_)) - (car2.velocity_ * cos(car2.angle_));
         double time_y = (car1.velocity_ * sin(car1.angle_)) - (car2.velocity_ * sin(car2.angle_));
