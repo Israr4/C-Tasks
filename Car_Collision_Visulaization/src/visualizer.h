@@ -13,6 +13,8 @@ class Visualizer
     public:
     size_t length_;
     size_t width_;
+    CImg<unsigned char> canvas_;
+    CImgDisplay display_;
 
     public:
     explicit Visualizer(size_t length, size_t width);
