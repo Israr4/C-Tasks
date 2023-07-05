@@ -42,8 +42,8 @@ void Visualizer :: drawRectangleShape( Car car, unsigned char color[3])
 void Visualizer :: update(std::vector<Car> &all_cars)
 {
     unsigned char red[3] = {255, 0, 0};
-    for(size_t i=0; i < all_cars.size();i++)
+    for (const Car& car : all_cars)
     {
-        drawRectangleShape(all_cars[i], red);
+        drawRectangleShape(car, red);
     } 
 }
