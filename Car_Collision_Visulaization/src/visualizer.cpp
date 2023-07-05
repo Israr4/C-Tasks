@@ -8,7 +8,6 @@ Visualizer :: Visualizer(size_t length, size_t width):canvas_(length, width, 1, 
 
 void Visualizer :: drawRectangleShape(CImg<unsigned char>& canvas, Car car, unsigned char color[3])  
 {
-    std::cout<<"Hello"<<std::endl;
     canvas.draw_rectangle(car.x_ - (car.carWidth_ / 2), car.y_ - (car.carHeight_ / 2), car.x_ + (car.carWidth_ / 2), car.y_ + (car.carHeight_ / 2), color, 1.0f);   
 }
 
