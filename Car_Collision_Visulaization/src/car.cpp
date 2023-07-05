@@ -1,13 +1,15 @@
 
-    #include "car_collision.h"
+    #include "car.h"
 
 
-    Car::Car(double x, double y, double velocity, double angle)
+    Car::Car(double x, double y, double velocity, double angle,double carWidth, double carHeight)
     {
         x_        = x;
         y_        = y;
         velocity_ = velocity;
-        angle_    = angle * M_PI / 180;  
+        angle_    = angle * M_PI / 180; 
+        carWidth_ = carWidth;
+        carHeight_ = carHeight;
     }
 
     void Car::move()

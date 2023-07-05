@@ -12,9 +12,10 @@ class Car
     public:
     double x_, y_ ;         
     double velocity_,angle_;
+    double carWidth_, carHeight_;
 
     public:
-    explicit Car(double, double, double, double);
+    explicit Car(double, double, double, double, double, double);
     void move();
 };
 

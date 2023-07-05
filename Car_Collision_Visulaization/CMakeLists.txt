@@ -5,14 +5,14 @@ project(DataVisualization VERSION 0.1.0 LANGUAGES C CXX)
 add_library(
     Visualizer
     src/CImg.h 
-    src/data_visualization.h
-    src/data_visualization.cpp
+    src/visualizer.h
+    src/visualizer.cpp
 )
 
 add_library(
     Car
-    src/car_collision.h
-    src/car_collision.cpp
+    src/car.h
+    src/car.cpp
 )
 
 add_executable(DataVisualizer 
