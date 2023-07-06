@@ -1,24 +1,27 @@
+#include <chrono>  
 #include <iostream>
-#include "src/visualizer.h"
+#include <thread>  
+
 #include "src/car.h"
+#include "src/visualizer.h"
 
-
-
-int main() 
+int main()
 {
-    std::vector<Car> all_cars;
+  std::vector<Car> all_cars;
+  all_cars.push_back(Car(200, 2, 5, 45, 30, 10));
+  all_cars.push_back(Car(2, 2, 5, 45, 30, 10));
 
-    all_cars.push_back(Car(200, 2, 5, 45 ,30,10));
-    all_cars.push_back(Car(2, 2, 5, 45,30,10 ));
+  cimg::wait(100);
+  Visualizer visualizer(800, 800);
 
-    Visualizer *visualize;
-    while(true)
-    {
+  while (true)
+  {
     for (Car& car : all_cars)
     {
-        car.move();
-        visualize -> update(all_cars);
+      car.move();
+      visualizer.update(all_cars);
     }
-    }
-    return 0;
+    std::this_thread::sleep_for(std::chrono::milliseconds(40));
+  }
+  return 0;
 }

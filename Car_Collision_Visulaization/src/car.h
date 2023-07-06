@@ -1,24 +1,30 @@
-#ifndef CAR_COLLISION_H
-#define CAR_COLLISION_H
+#ifndef CAR
+#define CAR
 
-#include <iostream>
 #include <cmath>
+#include <iostream>
 #include <vector>
 
-
-
-class Car 
+class Car
 {
-    public:
-    double x_, y_ ;         
-    double velocity_,angle_;
-    double carWidth_, carHeight_;
+ private:
+  double x_, y_;
+  double velocity_, angle_;
+  double width_, height_;
 
-    public:
-    explicit Car(double, double, double, double, double, double);
-    void move();
+ public:
+  explicit Car(double, double, double, double, double, double);
+
+  double x() const;
+  double y() const;
+  double velocity() const;
+  double angle() const;
+  double width() const;
+  double height() const;
+
+  void move();
+
+  bool is_Colliding(const Car& target_car);
 };
 
-bool is_Colliding(const Car&, const Car&);
-
-#endif  
+#endif
