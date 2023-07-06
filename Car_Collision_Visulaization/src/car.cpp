@@ -1,12 +1,11 @@
 #include "car.h"
 
 Car::Car(double x, double y, double velocity, double angle, double width,
-         double height)
-{
+         double height) {
   x_ = x;
   y_ = y;
   velocity_ = velocity;
-  angle_ = angle * M_PI / 180;
+  angle_ = angle * (M_PI/180);
   width_ = width;
   height_ = height;
 }
@@ -23,14 +22,12 @@ double Car::width() const { return width_; }
 
 double Car::height() const { return height_; }
 
-void Car::move()
-{
-  x_ += velocity_ * cos(angle_);
-  y_ += velocity_ * sin(angle_);
+void Car::move() {
+  x_ += (velocity_ * 0.04) * cos(angle_);
+  y_ += (velocity_ * 0.04) * sin(angle_);
 }
 
-bool Car::is_Colliding(const Car& target_car)
-{
+bool Car::is_Colliding(const Car& target_car) {
   double time_x = (velocity_ * cos(angle_)) -
                   (target_car.velocity() * cos(target_car.angle()));
   double time_y = (velocity_ * sin(angle_)) -

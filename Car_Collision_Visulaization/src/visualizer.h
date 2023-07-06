@@ -9,7 +9,6 @@
 #include "CImg.h"
 #include "car.h"
 
-using namespace cimg_library;
 
 class Visualizer
 {
@@ -17,8 +16,8 @@ class Visualizer
   size_t length_;
   size_t width_;
 
-  CImg<unsigned char> canvas_;
-  CImgDisplay display_;
+  cimg_library :: CImg<unsigned char> canvas_;
+  cimg_library :: CImgDisplay display_;
 
  public:
   explicit Visualizer(size_t length, size_t width);
