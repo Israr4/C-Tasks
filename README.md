@@ -1,1 +1,1 @@
-Cars_Collision branch contain C++ code to determine collision between two cars.
+Car_Collision_Visualization Branch contains C++ code to determine collisions between cars and also visualize these collision on CImg library. 
