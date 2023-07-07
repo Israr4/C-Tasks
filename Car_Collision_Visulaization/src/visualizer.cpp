@@ -4,8 +4,12 @@ Visualizer ::Visualizer(size_t length, size_t width)
     : canvas_(length, width, 1, 3, 255), display_(canvas_, "Car Collision")
 {
   length_ = length;
-  width_ = width;
+  width_  = width;
 }
+
+size_t Visualizer::length() const { return length_; }
+
+size_t Visualizer::width() const { return width_; }
 
 void Visualizer::drawRectangleShape(Car car, unsigned char color[3])
 {
