@@ -20,6 +20,10 @@ class Visualizer
   cimg_library :: CImgDisplay display_;
 
  public:
+  size_t length() const;
+  size_t width() const;
+
+ public:
   explicit Visualizer(size_t length, size_t width);
   void update(std::vector<Car>& all_cars);
 
